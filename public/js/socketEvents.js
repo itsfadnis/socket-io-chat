@@ -6,25 +6,12 @@ $(function() {
 	$("#entryModal").modal('show');
 });
 
-function placeFooter() {    
-    var windHeight = $(window).height();
-    var footerHeight = $('#footer').height();
-    var offset = parseInt(windHeight) - parseInt(footerHeight);
-    $('#footer').css('top',offset);
-}
-
 function submitName() {
 	name = $('#name').val();
 	if(isEmpty(name)) {
 		$('#emptyName').html('Name cannot be empty');
 	}
 	else {
-		$(window).resize(function(e){
-        	placeFooter();
-    	});
-    	placeFooter();
-    	// hide it before it's positioned
-    	$('#footer').css('display','inline');
 		// emit new participant
 		socket.emit('new participant', name);
 		// get participant list from server and append to side bar
@@ -68,7 +55,7 @@ function sendMessage() {
 
 socket.on('new participant', function(name) {
 	$('#participants').append('<li id="'+ name +'">' + name + '</li>');	// append new participant
-	$('#participantCount').html(++count + ' participants');	// increment count
+	$('#participantCount').html(++count + ' participant(s)');	// increment count
 });
 
 socket.on('chat message', function (data) {
@@ -90,7 +77,7 @@ socket.on('removeTyping', function(name) {
 
 socket.on('disconnected', function(name) {
 	$('#'+name).remove();	// remove from participant list
-	$('#participantCount').html(--count + ' participants');	// decrement count
+	$('#participantCount').html(--count + ' participant(s)');	// decrement count
 });
 
 function isEmpty(text) {
@@ -103,10 +90,17 @@ function notifyTyping() {
 	socket.emit('typing', name);
 }
 
-function notifyStoppedTyping() {
+function notifyStoppedTyping(event) {
 	socket.emit('stoppedTyping', name);
 }
 
 function removeTyping() {	// on blur
 	socket.emit('removeTyping', name);
 }
+
+$("#message").keyup(function(event) {
+	socket.emit('stoppedTyping', name);	// notify stopped typing 
+    if(event.keyCode == 13){	// send message on enter
+        sendMessage();
+    }
+});

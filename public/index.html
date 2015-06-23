@@ -29,7 +29,7 @@
             	</div>
             	<div class="modal-footer">
             		<p id="emptyName" class="text-center text-warning"></p>
-                	<button type="button" id="submitName" class="btn btn-primary" onclick="submitName()">Start</button>
+                	<button type="button" class="btn btn-primary" onclick="submitName()">Start</button>
             	</div>
         	</div>
     	</div>
@@ -37,25 +37,18 @@
 
 	<div class="container hidden">
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<div id="notificationSideBar">
-					<p class="text-center" id="participantCount"></p>
+					<h3 class="text-center" id="participantCount"></h3>
 					<ul id="participants"></ul>
 				</div>
 			</div>
-			<div class="col-md-10">
-				<i class="fa fa-comment fa-3x"></i><br>
+			<div class="col-md-9" >
+				<h1><i class="fa fa-comment fa-fw"></i></h1>
 				<div id="notificationBar" style="height: 50px"></div>
-				<ul id="messages"></ul>
-				<div id="footer" style="position: absolute; display: none;">
-					<div class="input-group">
-						<input type="text" id="message" onkeydown='notifyTyping()' onkeyup='notifyStoppedTyping()' 
-							onblur='removeTyping()' class="form-control" placeholder="Type in here..">
-						<span class="input-group-addon">
-							<a href="#" id="sendMessage" onclick="sendMessage()">Send</i></a>
-						</span>
-					</div>
-				</div>
+				<div style="overflow:auto"><ul id="messages"></ul></div>
+				<input style="bottom: 0px; position: static" type="text" class="form-control" id="message" 
+					onkeydown='notifyTyping()' onblur='removeTyping()' placeholder="Type in here..">
 			</div>
 		</div>
 	</div>
@@ -64,7 +57,7 @@
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 
 <!-- Jquery -->
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
