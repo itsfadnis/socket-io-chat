@@ -16,7 +16,7 @@
 </head>
 <body>
 	<!-- Entry modal -->
-	<div id="entryModal" class="modal fade" data-keyboard="false" data-backdrop="static">
+	<div id="entryModal" class="modal in" data-keyboard="false" data-backdrop="static">
     	<div class="modal-dialog modal-sm">
         	<div class="modal-content">
             	<div class="modal-header">
@@ -24,12 +24,12 @@
             	</div>
             	<div class="modal-body">
                 	<div class="form-group">
-                		<input type="text" class="form-control" id="name">
+                		<input type="text" class="form-control" id="name" autofocus>
                 	</div>
             	</div>
             	<div class="modal-footer">
             		<p id="emptyName" class="text-center text-warning"></p>
-                	<button type="button" class="btn btn-primary" onclick="submitName()">Start</button>
+                	<button type="button" class="btn btn-primary form-control" onclick="submitName()">Start</button>
             	</div>
         	</div>
     	</div>
@@ -46,9 +46,9 @@
 			<div class="col-md-9" >
 				<h1><i class="fa fa-comment fa-fw"></i></h1>
 				<div id="notificationBar" style="height: 50px"></div>
-				<div style="overflow:auto"><ul id="messages"></ul></div>
-				<input style="bottom: 0px; position: static" type="text" class="form-control" id="message" 
+				<input type="text" class="form-control" id="message" 
 					onkeydown='notifyTyping()' onblur='removeTyping()' placeholder="Type in here..">
+				<div style="overflow:auto"><ul id="messages"></ul></div>
 			</div>
 		</div>
 	</div>
@@ -63,5 +63,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <!-- Custom scripts -->
+<script src="js/chatManager.js"></script>
 <script src="js/socketEvents.js"></script>
 </html>

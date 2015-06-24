@@ -24,11 +24,16 @@ module.exports = function(io, participants) {
   			socket.broadcast.emit('removeTyping', name);
   		});
   		socket.on('disconnect', function() {
-  			// remove from participants list
-  			participants.splice(participants.indexOf(client.name), 1);
-  			console.log(client.name + ' disconnected');
-  			// broadcast to other participants
-  			socket.broadcast.emit('disconnected', client.name);
+  			if(client.name == undefined) {
+  				// do nothing, client disconnected before joining chat
+  			} 
+  			else {
+  				console.log(client.name + ' disconnected');
+  				// remove from participants list
+  				participants.splice(participants.indexOf(client.name), 1);
+  				// broadcast to other participants
+  				socket.broadcast.emit('disconnected', client.name);
+  			}
   		});
 	});
 }
