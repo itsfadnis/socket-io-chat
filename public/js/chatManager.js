@@ -6,10 +6,15 @@ $(function() {
 	$("#entryModal").modal('show');
 });
 
+function validateName(name) {
+	var patt = /^\w+$/;
+	return patt.test(name);
+}
+
 function submitName() {
 	name = $('#name').val();
-	if(isEmpty(name)) {
-		$('#emptyName').html('Name cannot be empty');
+	if(!validateName(name)) {
+		$('#emptyName').html('Name should be alphanumeric');
 		$('#name').val('');
 		$('#name').focus();
 	}
