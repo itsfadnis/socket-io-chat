@@ -18,7 +18,7 @@ function submitName() {
 		$('#name').val('');
 		$('#name').focus();
 	}
-	else {
+	else {	
 		// emit new participant
 		socket.emit('new participant', name);
 		// get participant list from server and append to side bar
@@ -56,7 +56,7 @@ function sendMessage() {
 		$('#messages').prepend($('<li>').text(message));
 		socket.emit('chat message', { name: name, message: message } );		
 	}
-    $('#message').val('');s
+    $('#message').val('');
     $('#message').focus();
 }
 

@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Socket IO chat</title>
+	<title>Socket IO Chat</title>
 	 <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -48,7 +48,7 @@
 				<div id="notificationBar" style="height: 50px"></div>
 				<input type="text" class="form-control" id="message" 
 					onkeydown='notifyTyping()' onblur='removeTyping()' placeholder="Type in here..">
-				<ul style="padding: 20px" id="messages"></ul></div>
+				<ul style="padding: 20px; overflow: auto" id="messages"></ul></div>
 			</div>
 		</div>
 	</div>
@@ -63,6 +63,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <!-- Custom scripts -->
+<script src="js/jqueryTitleAlert.min.js"></script>
 <script src="js/chatManager.js"></script>
 <script src="js/socketEvents.js"></script>
 </html>

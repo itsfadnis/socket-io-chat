@@ -5,6 +5,12 @@ socket.on('new participant', function(name) {
 
 socket.on('chat message', function (data) {
 	$('#messages').prepend($('<li>').text(data.name + ': ' + data.message));
+	$.titleAlert("New message(s)!", {
+    	requireBlur: true,
+    	stopOnFocus: true,
+    	duration: 0,
+    	interval: 700
+	});
 });
 
 socket.on('typing', function(name) {
