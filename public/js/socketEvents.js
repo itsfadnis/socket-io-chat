@@ -15,7 +15,7 @@ socket.on('chat message', function (data) {
 
 socket.on('typing', function(name) {
 	if($('#'+name).length == 0)
-		$('#notificationBar').append('<p id="' + name + '">' + name + ' is typing..');
+		$('#notificationBar').append('<span id="' + name + '">' + name + ' is typing.. </span>');
 });
 
 socket.on('stoppedTyping', function(name) {

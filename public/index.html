@@ -37,14 +37,14 @@
 
 	<div class="container hidden">
 		<div class="row">
-			<div class="col-md-3">
-				<div id="notificationSideBar">
-					<h3 class="text-center" id="participantCount"></h3>
-					<ul id="participants"></ul>
-				</div>
+			<div class="col-xs-12">
+				<h1 class="text-center well well-sm">Socket IO Chat <i class="fa fa-comment fa-2x"></i></h1><hr>
 			</div>
-			<div class="col-md-9" >
-				<h1><i class="fa fa-comment fa-fw"></i></h1>
+			<div class="col-sm-3 col-xs-12">
+				<h3 class="text-center" id="participantCount"></h3>
+				<ul id="participants"></ul>
+			</div>
+			<div class="col-sm-9 col-xs-12">
 				<div id="notificationBar" style="height: 50px"></div>
 				<input type="text" class="form-control" id="message" 
 					onkeydown='notifyTyping()' onblur='removeTyping()' placeholder="Type in here..">
