@@ -4,7 +4,19 @@ var count = 0;
 
 $(function() {
 	$("#entryModal").modal('show');
+	setMessageFeedHeight();	
 });
+
+$(window).resize(function() {
+	setMessageFeedHeight();
+});
+
+function setMessageFeedHeight() {
+	var wHeight = $(window).height();
+	$('.messageFeed').css({
+		'height' : ( wHeight * 0.6 ) + 'px'	
+	});
+}
 
 function validateName(name) {
 	var patt = /^\w+$/;
@@ -30,8 +42,8 @@ function submitName() {
 				console.log('Participants: ');
 				console.log(participants);
 				$.each(participants, function(index, participant) {		// append participants
-					$('#participants').prepend('<li id="P' + participant + '">' + participant + '</li>');
-					$('#participantList').prepend('<li id="PM' + participant + '">' + participant + '</li>');
+					$('#participants').append('<li id="P' + participant + '">' + participant + '</li>');
+					$('#participantList').append('<li id="PM' + participant + '">' + participant + '</li>');
 				});
 				// set participant count
 				count = participants.length;
@@ -54,7 +66,7 @@ function sendMessage() {
 		return false;
 	}
 	else {
-		$('#messages').prepend($('<li>').text(message));
+		$('#messages').append($('<li>').text(message));
 		socket.emit('chat message', { name: name, message: message } );		
 	}
     $('#message').val('');
