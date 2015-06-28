@@ -2,12 +2,15 @@ html, body {
 	max-height: 100%;
 }
 
-.hidden {
-	display: none;
-}
-
 @media only screen and (max-width: 768px) {
 	#participants {
 		display: none;
 	}
 }
+
+@media only screen and (min-width: 769px) {
+	p[class="text-center"] {
+		display: none;
+	}
+}
+

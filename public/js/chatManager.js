@@ -31,6 +31,7 @@ function submitName() {
 				console.log(participants);
 				$.each(participants, function(index, participant) {		// append participants
 					$('#participants').prepend('<li id="P' + participant + '">' + participant + '</li>');
+					$('#participantList').prepend('<li id="PM' + participant + '">' + participant + '</li>');
 				});
 				// set participant count
 				count = participants.length;

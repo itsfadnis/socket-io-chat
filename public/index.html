@@ -35,20 +35,40 @@
     	</div>
 	</div>
 
+	<!-- Participants modal -->
+	<div id="participantsModal" class="modal fade">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h1 class="modal-title text-center">Participants</h1>
+				</div>
+				<div class="modal-body">
+					<ul id="participantList"></ul>			
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary for-control" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Container -->
 	<div class="container hidden">
 		<div class="row">
 			<div class="col-xs-12">
-				<h1 class="text-center well well-sm">Socket IO Chat <i class="fa fa-comment fa-2x"></i></h1><hr>
+				<h1 class="text-center">Socket IO Chat <i class="fa fa-comment lg"></i></h1><hr>
 			</div>
 			<div class="col-sm-3 col-xs-12">
 				<h3 class="text-center" id="participantCount"></h3>
+				<p class="text-center"><a href="#participantsModal" data-toggle="modal">See who's online</a></p>
 				<ul id="participants"></ul>
 			</div>
 			<div class="col-sm-9 col-xs-12">
 				<div id="notificationBar" style="height: 50px"></div>
 				<input type="text" class="form-control" id="message" 
 					onkeydown='notifyTyping()' onblur='removeTyping()' placeholder="Type in here..">
-				<ul style="padding: 20px; overflow: auto" id="messages"></ul></div>
+				<ul style="padding: 20px; overflow: auto" id="messages"></ul>
 			</div>
 		</div>
 	</div>
