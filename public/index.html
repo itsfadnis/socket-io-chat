@@ -2,77 +2,77 @@
 <html>
 
 <head>
-    <title>Socket IO Chat</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <title>Socket IO Chat</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <!-- Custom styles -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <!-- Custom styles -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body>
-    <!-- Entry modal -->
-    <div id="entryModal" class="modal in" data-keyboard="false" data-backdrop="static">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title text-center">Who are you?</h1>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="name" autofocus>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <p id="emptyName" class="text-center text-warning"></p>
-                    <button type="button" class="btn btn-primary form-control" onclick="submitName()">Start</button>
-                </div>
-            </div>
+  <!-- Entry modal -->
+  <div id="entryModal" class="modal in" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title text-center">Who are you?</h1>
         </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" autofocus>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <p id="emptyName" class="text-center text-warning"></p>
+          <button type="button" class="btn btn-primary form-control" onclick="submitName()">Start</button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Participants modal -->
-    <div id="participantsModal" class="modal fade">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h1 class="modal-title text-center">Participants</h1>
-                </div>
-                <div class="modal-body">
-                    <ul id="participantList"></ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary for-control" data-dismiss="modal">Close</button>
-                </div>
-            </div>
+  <!-- Participants modal -->
+  <div id="participantsModal" class="modal fade">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h1 class="modal-title text-center">Participants</h1>
         </div>
+        <div class="modal-body">
+          <ul id="participantList"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary for-control" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Container -->
-    <div class="container hidden">
-        <div class="row">
-            <div class="col-xs-12">
-                <h1 class="text-center">Socket IO Chat <i class="fa fa-comment lg"></i></h1>
-            </div>
-            <div class="col-sm-3 col-xs-12">
-                <h3 class="text-center" id="participantCount"></h3>
-                <p class="text-center"><a href="#participantsModal" data-toggle="modal">See who's online</a></p>
-                <ul id="participants"></ul>
-            </div>
-            <div class="col-sm-9 col-xs-12">
-                <div id="notificationBar" style="height: 30px"></div>
-                <ul class="messageFeed well" style="padding: 35px; overflow: auto;" id="messages"></ul>
-                <input type="text" class="form-control" id="message" onkeydown='notifyTyping()' onblur='removeTyping()' placeholder="Type in here..">
-            </div>
-        </div>
+  <!-- Container -->
+  <div class="container hidden">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="text-center">Socket IO Chat <i class="fa fa-comment lg"></i></h1>
+      </div>
+      <div class="col-sm-3 col-xs-12">
+        <h3 class="text-center" id="participantCount"></h3>
+        <p class="text-center"><a href="#participantsModal" data-toggle="modal">See who's online</a></p>
+        <ul id="participants"></ul>
+      </div>
+      <div class="col-sm-9 col-xs-12">
+        <div id="notificationBar" style="height: 30px"></div>
+        <ul class="messageFeed well" style="padding: 35px; overflow: auto;" id="messages"></ul>
+        <input type="text" class="form-control" id="message" onkeydown='notifyTyping()' onblur='removeTyping()' placeholder="Type in here..">
+      </div>
     </div>
+  </div>
 </body>
 <!-- Socket IO client -->
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
