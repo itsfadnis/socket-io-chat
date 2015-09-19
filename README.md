@@ -1,5 +1,5 @@
 # socket-io-chat
-> Real time chat with node js, with socket io
+> Real time chat with node js, socket io
 
 ## Requirements
 - Node.js
