@@ -5,13 +5,12 @@ var express = require('express'),
   morgan = require('morgan'),
   participants = [];
 
-app.set('port', process.env.PORT || 5000);
-app.use(morgan('dev')); // set request logging
-app.use(express.static(__dirname + '/public')); // serve static directory
-require('./cors.js')(app); // configure cors
-require('./routes.js')(app, participants); // serve app routes
-require('./socketEvents.js')(io, participants); // event handlers
+app.use(morgan('dev')); 
+app.use(express.static(__dirname + '/public')); 
+require('./cors.js')(app); 
+require('./routes.js')(app, participants); 
+require('./socketEvents.js')(io, participants); 
 
-http.listen(app.get('port'), function() {
-  console.log('Running on ' + app.get('port'));
+http.listen(process.env.PORT, process.env.IP, function() {
+  console.log('Express app listening at ' + process.env.PORT);
 });

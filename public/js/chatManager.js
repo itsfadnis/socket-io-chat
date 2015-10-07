@@ -1,11 +1,9 @@
-var socket = io();
+var socket = io('https://socket-io-chat-itsfadnis-2.c9.io');
 var name = '';
 var count = 0;
 
-$(function() {
-  $("#entryModal").modal('show');
-  setMessageFeedHeight();
-});
+$("#entryModal").modal('show');
+setMessageFeedHeight();
 
 $(window).resize(function() {
   setMessageFeedHeight();
@@ -35,7 +33,7 @@ function submitName() {
     // get participant list from server and append to side bar
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:5000/participants',
+      url: 'https://socket-io-chat-itsfadnis-2.c9.io/participants',
       dataType: 'json',
       success: function(participants) {
         console.log('Participants: ');
@@ -46,7 +44,7 @@ function submitName() {
         });
         // set participant count
         count = participants.length;
-        $('#participantCount').html(count + ' participant(s)');
+        $('#participantCount').html(count + ' participants');
       },
       error: function(xhr, status, error) {
         console.log('Ajax failure: ' + status);
