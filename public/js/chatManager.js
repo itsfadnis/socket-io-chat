@@ -67,6 +67,7 @@ function sendMessage() {
       name: name,
       message: message
     });
+    $("#messages").animate({ scrollTop: $('#messages')[0].scrollHeight}, 1000);
   }
   $('#message').val('');
   $('#message').focus();
