@@ -7,7 +7,7 @@ socket.on('new participant', function(name) {
 socket.on('chat message', function(data) {
   $('#messages').append($('<li>').html('<b>' + data.name + '</b>' + ': ' + data.message));
   $("#messages").animate({ scrollTop: $('#messages')[0].scrollHeight}, 1000);
-  $.titleAlert("New message(s)!", {
+  $.titleAlert("New messages!", {
     requireBlur: true,
     stopOnFocus: true,
     duration: 0,

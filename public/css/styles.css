@@ -10,7 +10,7 @@ html, body {
 
 @media only screen and (min-width: 769px) {
   p[class="text-center"] {
-	display: none;
+	  display: none;
   }
 }
 
